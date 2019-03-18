@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private float healthAtTransistion;
+    private float healthAtTransistion = 1;
     private int enemyToFace;
 
     void Awake ()
@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void StoreHealth (float currentHealth)
-    {
-        healthAtTransistion = currentHealth;
+    {        
+        healthAtTransistion = currentHealth;        
     }
     public float RetrieveHealth ()
     {

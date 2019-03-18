@@ -3,10 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class InitiateBattle : MonoBehaviour
 {
-    public string battleSceneNames;
-   
+    public string battleScene;
+    OverworldHealth overworldHealth;
+
+    private void Start()
+    {
+        overworldHealth = GameObject.Find("Scene Manager").GetComponent<OverworldHealth>();
+    }
+
     void OnTriggerEnter (Collider other)
     {
+        
         if (other.gameObject.CompareTag("Enemy1"))
         {
             SwitchToBattleScene(1);
@@ -23,7 +30,8 @@ public class InitiateBattle : MonoBehaviour
 
     void SwitchToBattleScene(int enemyType)
     {
+        GameManager.instance.StoreHealth(overworldHealth.healthBar.fillAmount);      
         GameManager.instance.StoreEnemyToFight(enemyType);
-        SceneManager.LoadScene(battleSceneNames);
+        SceneManager.LoadScene(battleScene);
     }
 }
