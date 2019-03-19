@@ -13,7 +13,6 @@ public class InitiateBattle : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        
         if (other.gameObject.CompareTag("Enemy1"))
         {
             SwitchToBattleScene(1);

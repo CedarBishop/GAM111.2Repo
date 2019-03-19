@@ -9,28 +9,28 @@ public class PlayerAttacks : MonoBehaviour
     {
         playerCurrentAttackText.text = "";
     }
-    public void FirePunch ()
+    public void Schnitzel ()
     {
         buttonCanvas.gameObject.SetActive(false);
-        playerCurrentAttackText.text = "Player used Fire Punch!";
+        playerCurrentAttackText.text = "Big Mac used Schnitzel!";
     }
 
-    public void SweepKick ()
+    public void Fry ()
     {
         buttonCanvas.gameObject.SetActive(false);
-        playerCurrentAttackText.text = "Player used Sweep Kick!";
+        playerCurrentAttackText.text = "Big Mac used Fry!";
     }
 
-    public void IceTornado ()
+    public void Roast ()
     {
         buttonCanvas.gameObject.SetActive(false);
-        playerCurrentAttackText.text = "Player used Ice Tornado!";
+        playerCurrentAttackText.text = "Big Mac used Roast!";
     }
 
-    public void Heal ()
+    public void EatGrass ()
     {
         buttonCanvas.gameObject.SetActive(false);
-        playerCurrentAttackText.text = "Player used Heal!";
+        playerCurrentAttackText.text = "Big Mac used Eat Grass!";
     }
 
 

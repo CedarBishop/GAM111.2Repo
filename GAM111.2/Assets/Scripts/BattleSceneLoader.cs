@@ -10,7 +10,7 @@ public class BattleSceneLoader : MonoBehaviour
 
     void Start()
     {
-        go = Instantiate(enemyPrefabs[GameManager.instance.ReturnEnemyType() - 1],enemySpawnPoint.position, Quaternion.identity);
+        go = Instantiate(enemyPrefabs[GameManager.instance.ReturnEnemyType() - 1],enemySpawnPoint.position, enemySpawnPoint.rotation);
         healthBar.fillAmount = GameManager.instance.RetrieveHealth();
     }
 }

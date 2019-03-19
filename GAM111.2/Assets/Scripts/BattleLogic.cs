@@ -24,15 +24,15 @@ public class BattleLogic : MonoBehaviour
     {
         if (GameManager.instance.ReturnEnemyType() == 1)
         {
-            enemyName.text = "Enemy 1";
+            enemyName.text = "McChicken";
         }
         else if (GameManager.instance.ReturnEnemyType() == 2)
         {
-            enemyName.text = "Enemy 2";
+            enemyName.text = "McDonald";
         }
         else if (GameManager.instance.ReturnEnemyType() == 3)
         {
-            enemyName.text = "Enemy 3";
+            enemyName.text = "McBacon";
         }
     }
 }
