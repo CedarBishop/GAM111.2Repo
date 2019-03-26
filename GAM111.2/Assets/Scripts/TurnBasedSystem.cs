@@ -1,50 +1,49 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class TurnBasedSystem : MonoBehaviour
 {
-    public enum CurrentAnimalTurn { Player, Enemy, None};
-    CurrentAnimalTurn currentAnimalTurn;
-    [HideInInspector] public static bool playersTurn;
-    [HideInInspector] public static bool enemiesTurn;
-
+    public Canvas buttonCanvas;
+    public enum CurrentAnimalTurn { PlayerSelection ,PlayerAttack, PlayerDamage, EnemySelection, EnemyAttack, EnemyDamage};
+    public CurrentAnimalTurn currentAnimalTurn;
     void Start()
     {
-        currentAnimalTurn = CurrentAnimalTurn.Player;
-    }
+        currentAnimalTurn = CurrentAnimalTurn.PlayerSelection;
+    }   
 
-
-    void Update()
+    public IEnumerator CycleNextTurn ()
     {
         switch (currentAnimalTurn)
         {
-            case CurrentAnimalTurn.Player:
-                playersTurn = true;
-                enemiesTurn = false;
+            case CurrentAnimalTurn.PlayerSelection:
+                yield return new WaitForSeconds(0);
+                buttonCanvas.gameObject.SetActive(false);
+                currentAnimalTurn = CurrentAnimalTurn.PlayerAttack;
                 break;
-            case CurrentAnimalTurn.Enemy:
-                playersTurn = false;
-                enemiesTurn = true;
+            case CurrentAnimalTurn.PlayerAttack:
+                yield return new WaitForSeconds(2);
+                currentAnimalTurn = CurrentAnimalTurn.PlayerDamage;
                 break;
-            case CurrentAnimalTurn.None:
-                playersTurn = false;
-                enemiesTurn = false;
+            case CurrentAnimalTurn.PlayerDamage:
+                yield return new WaitForSeconds(2);
+                currentAnimalTurn = CurrentAnimalTurn.EnemySelection;
+                break;
+            case CurrentAnimalTurn.EnemySelection:
+                yield return new WaitForSeconds(0);
+                currentAnimalTurn = CurrentAnimalTurn.PlayerAttack;
+                break;
+            case CurrentAnimalTurn.EnemyAttack:
+                yield return new WaitForSeconds(2);
+                currentAnimalTurn = CurrentAnimalTurn.EnemyDamage;
+                break;
+            case CurrentAnimalTurn.EnemyDamage:
+                yield return new WaitForSeconds(2);
+                buttonCanvas.gameObject.SetActive(true);
+                currentAnimalTurn = CurrentAnimalTurn.PlayerSelection;
+                break;
+            default:
                 break;
         }
-    }
-
-    public void CycleNextTurn ()
-    {
-        switch (currentAnimalTurn)
-        {
-            case CurrentAnimalTurn.Player:
-                currentAnimalTurn = CurrentAnimalTurn.Enemy;
-                break;
-            case CurrentAnimalTurn.Enemy:
-                currentAnimalTurn = CurrentAnimalTurn.None;
-                break;
-            case CurrentAnimalTurn.None:
-                currentAnimalTurn = CurrentAnimalTurn.Player;
-                break;
-        }
+        StopCoroutine("CycleNextTurn");
     }
 }

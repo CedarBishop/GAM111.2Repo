@@ -2,8 +2,7 @@
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-
+    public static GameManager instance = null;
     private float healthAtTransistion = 1;
     private int enemyToFace;
 

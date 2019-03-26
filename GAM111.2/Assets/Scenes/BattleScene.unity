@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 394459051}
   - component: {fileID: 394459052}
   - component: {fileID: 394459053}
+  - component: {fileID: 394459054}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -461,6 +462,18 @@ MonoBehaviour:
   playerHpText: {fileID: 174984927}
   enemyHpText: {fileID: 2019425164}
   enemyName: {fileID: 1000154326}
+--- !u!114 &394459054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394459050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba57d9935ca3ce148a619ed3b3a98ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &614555909
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,7 +32,21 @@ public class BattleLogic : MonoBehaviour
         }
         else if (GameManager.instance.ReturnEnemyType() == 3)
         {
-            enemyName.text = "McBacon";
+            enemyName.text = "McRib";
         }
+    }
+
+    public void PlayerTakeDamage(float damage)
+    {
+        playerHpImage.fillAmount -= (damage / 100);
+    }
+
+    public void EnemyTakeDamage (float damage)
+    {
+        enemyHpImage.fillAmount -= (damage / 100);
+    }
+    public void PlayerHeals (float amount)
+    {
+        playerHpImage.fillAmount += (amount / 100);
     }
 }
