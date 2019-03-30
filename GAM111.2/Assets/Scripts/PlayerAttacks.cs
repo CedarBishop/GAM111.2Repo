@@ -11,37 +11,38 @@ public class PlayerAttacks : MonoBehaviour
     void Start ()
     {
         playerCurrentAttackText.text = "";
-        battleLogic = GetComponent<BattleLogic>();
-
+        battleLogic = GameObject.Find("Scene Manager").GetComponent<BattleLogic>();
+        buttonCanvas.gameObject.SetActive(true);
+        turnBasedSystem = GameObject.Find("Scene Manager").GetComponent<TurnBasedSystem>();
     }
 
     public void Schnitzel ()
     {
-        turnBasedSystem.CycleNextTurn();
         playerCurrentAttackText.text = "Big Mac used Schnitzel!";
         attackBeingUsed = "Schnitzel";
+        turnBasedSystem.StartCoroutine("CycleNextTurn");
     }
 
     public void Fry ()
     {
-        turnBasedSystem.CycleNextTurn();
         playerCurrentAttackText.text = "Big Mac used Fry!";
         attackBeingUsed = "Fry";
+        turnBasedSystem.StartCoroutine("CycleNextTurn");
 
     }
 
     public void Roast ()
     {
-        turnBasedSystem.CycleNextTurn();
         playerCurrentAttackText.text = "Big Mac used Roast!";
         attackBeingUsed = "Roast";
+        turnBasedSystem.StartCoroutine("CycleNextTurn");
     }
 
     public void EatGrass ()
     {
-        turnBasedSystem.CycleNextTurn();
         playerCurrentAttackText.text = "Big Mac used Eat Grass!";
         attackBeingUsed = "EatGrass";
+        turnBasedSystem.StartCoroutine("CycleNextTurn");
     }
     
 	public void PlayerAttackDamage()
@@ -95,5 +96,10 @@ public class PlayerAttacks : MonoBehaviour
         {
             battleLogic.PlayerHeals(40.0f);
         }
+       // turnBasedSystem.StartCoroutine("CycleNextTurn");
+    }
+    public void ClearPlayerAttackText()
+    {
+        playerCurrentAttackText.text = "";
     }
 }

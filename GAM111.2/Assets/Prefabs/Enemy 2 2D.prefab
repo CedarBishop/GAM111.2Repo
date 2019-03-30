@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7627500100490261080}
   - component: {fileID: 8656096954361644389}
   - component: {fileID: 5865797710036184886}
+  - component: {fileID: 9209024319341003649}
   m_Layer: 0
   m_Name: Enemy 2 2D
   m_TagString: Enemy2
@@ -97,3 +98,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9209024319341003649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424702963741430183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d7400947bbf2141a65aaf1e6f36501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAttackName: Duck Attack
+  damageEnemyDeals: 25

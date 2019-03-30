@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6164085403463625202}
   - component: {fileID: 5815109505220684022}
   - component: {fileID: 608654987409529273}
+  - component: {fileID: 4761126353120751276}
   m_Layer: 0
   m_Name: Enemy 3 2D
   m_TagString: Enemy3
@@ -97,3 +98,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4761126353120751276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906186365443638793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d7400947bbf2141a65aaf1e6f36501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAttackName: Pig Attack
+  damageEnemyDeals: 25
