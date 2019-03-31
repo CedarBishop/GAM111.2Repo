@@ -5,12 +5,8 @@ public class InitiateBattle : MonoBehaviour
 {
     public string battleScene;
     OverworldHealth overworldHealth;
-
-    private void Start()
-    {
-        overworldHealth = GameObject.Find("Scene Manager").GetComponent<OverworldHealth>();
-    }
-
+    Transform playerTransform;
+    
     void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.CompareTag("Enemy1"))
@@ -29,7 +25,10 @@ public class InitiateBattle : MonoBehaviour
 
     void SwitchToBattleScene(int enemyType)
     {
-        GameManager.instance.StoreHealth(overworldHealth.healthBar.fillAmount);      
+        overworldHealth = GameObject.Find("Scene Manager").GetComponent<OverworldHealth>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        GameManager.instance.StoreHealth(overworldHealth.healthBar.fillAmount);
+        GameManager.instance.StorePosition(playerTransform.position);
         GameManager.instance.StoreEnemyToFight(enemyType);
         SceneManager.LoadScene(battleScene);
     }

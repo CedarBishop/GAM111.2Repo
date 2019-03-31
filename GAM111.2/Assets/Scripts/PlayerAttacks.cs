@@ -55,22 +55,22 @@ public class PlayerAttacks : MonoBehaviour
         else if (attackBeingUsed == "Schnitzel" && GameManager.instance.ReturnEnemyType() == 2)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(50.0f);
+            battleLogic.EnemyTakeDamage(33.4f);
         }
         else if (attackBeingUsed == "Schnitzel" && GameManager.instance.ReturnEnemyType() == 3)
         {
             playerCurrentAttackText.text = "Schnitzel was not very effective";
-            battleLogic.EnemyTakeDamage(50.0f);
+            battleLogic.EnemyTakeDamage(25);
         }
         else if (attackBeingUsed == "Fry" && GameManager.instance.ReturnEnemyType() == 1)
         {
             playerCurrentAttackText.text = "Fry was not very effective";
-            battleLogic.EnemyTakeDamage(50.0f);
+            battleLogic.EnemyTakeDamage(25);
         }
         else if (attackBeingUsed == "Fry" && GameManager.instance.ReturnEnemyType() == 2)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(50.0f);
+            battleLogic.EnemyTakeDamage(33.4f);
         }
         else if (attackBeingUsed == "Fry" && GameManager.instance.ReturnEnemyType() == 3)
         {
@@ -80,17 +80,17 @@ public class PlayerAttacks : MonoBehaviour
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 1)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(50.0f);
+            battleLogic.EnemyTakeDamage(33.4f);
         }
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 2)
         {
-            playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(50.0f);
+            playerCurrentAttackText.text = "Roast was super effective";
+            battleLogic.EnemyTakeDamage(50);
         }
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 3)
         {
-            playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(50.0f);
+            playerCurrentAttackText.text = "Roast was not very effective";
+            battleLogic.EnemyTakeDamage(25);
         }
         else if (attackBeingUsed == "EatGrass")
         {

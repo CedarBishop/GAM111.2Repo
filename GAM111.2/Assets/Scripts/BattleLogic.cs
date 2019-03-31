@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class BattleLogic : MonoBehaviour
 {
     public Image playerHpImage;
@@ -18,6 +18,14 @@ public class BattleLogic : MonoBehaviour
     {
         playerHpText.text = "HP: " + (playerHpImage.fillAmount * 100).ToString("F0");
         enemyHpText.text = "HP: " + (enemyHpImage.fillAmount * 100).ToString("F0");
+        if (playerHpImage.fillAmount <= 0)
+        {
+            PlayerLost();
+        }
+        else if (enemyHpImage.fillAmount <= 0)
+        {
+            PlayerWins();
+        }
     }
 
     void FindEnemyName ()
@@ -48,5 +56,15 @@ public class BattleLogic : MonoBehaviour
     public void PlayerHeals (float amount)
     {
         playerHpImage.fillAmount += (amount / 100);
+    }
+    void PlayerLost ()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    void PlayerWins ()
+    {
+        GameManager.instance.StoreHealth(playerHpImage.fillAmount);
+        SceneManager.LoadScene("Overworld");
     }
 }
