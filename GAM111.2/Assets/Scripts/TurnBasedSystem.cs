@@ -4,10 +4,10 @@ using UnityEngine;
 public class TurnBasedSystem : MonoBehaviour
 {
     EnemyAttacks enemyAttacks;
-    public Canvas buttonCanvas;
-    public enum CurrentAnimalTurn { PlayerSelection ,PlayerAttack, PlayerDamage, EnemySelection, EnemyAttack, EnemyDamage};
+    public enum CurrentAnimalTurn {PlayerSelection ,PlayerAttack, PlayerDamage, EnemySelection, EnemyAttack, EnemyDamage};
     public CurrentAnimalTurn currentAnimalTurn;
     public PlayerAttacks playerAttacks;
+    public Canvas[] allCanvas;
     void Start()
     {
         if (GameManager.instance.ReturnEnemyType() == 1)
@@ -23,8 +23,22 @@ public class TurnBasedSystem : MonoBehaviour
             enemyAttacks = GameObject.FindGameObjectWithTag("Enemy3").GetComponent<EnemyAttacks>();
         }
         currentAnimalTurn = CurrentAnimalTurn.PlayerSelection;
-    }   
+        StartCoroutine("TimeDelayAtStartOfBattle");
+        foreach (Canvas canvas in allCanvas)
+        {
+            canvas.gameObject.SetActive(false);
+        }
+    }
 
+    IEnumerator TimeDelayAtStartOfBattle()
+    {        
+        yield return new WaitForSeconds(2);        
+        foreach  (Canvas canvas in allCanvas)
+        {
+            canvas.gameObject.SetActive(true);
+        }
+        StopCoroutine("TimeDelayAtStartOfBattle");
+    }
 
     public void InvokeCycle ()
     {
@@ -50,7 +64,6 @@ public class TurnBasedSystem : MonoBehaviour
             default:
                 break;
         }
-
     }
 
     public IEnumerator CycleNextTurn ()
@@ -58,39 +71,33 @@ public class TurnBasedSystem : MonoBehaviour
         switch (currentAnimalTurn)
         {
             case CurrentAnimalTurn.PlayerSelection:
-                Debug.Log("1");
                 yield return new WaitForSeconds(0);
-                buttonCanvas.gameObject.SetActive(false);
+                playerAttacks.TurnOffButtons();
                 currentAnimalTurn = CurrentAnimalTurn.PlayerAttack;
                 break;
             case CurrentAnimalTurn.PlayerAttack:
-                Debug.Log("2");
                 yield return new WaitForSeconds(2);
                 currentAnimalTurn = CurrentAnimalTurn.PlayerDamage;
                 break;
-            case CurrentAnimalTurn.PlayerDamage:
-                Debug.Log("3");               
+            case CurrentAnimalTurn.PlayerDamage:              
                 playerAttacks.PlayerAttackDamage();
                 yield return new WaitForSeconds(2);
                 currentAnimalTurn = CurrentAnimalTurn.EnemySelection;
                 break;
             case CurrentAnimalTurn.EnemySelection:
-                Debug.Log("4");
                 playerAttacks.ClearPlayerAttackText();
                 yield return new WaitForSeconds(2);
                 currentAnimalTurn = CurrentAnimalTurn.EnemyAttack;
                 break;
             case CurrentAnimalTurn.EnemyAttack:
-                Debug.Log("5");
                 enemyAttacks.AttackPlayer();
                 yield return new WaitForSeconds(2);
                 currentAnimalTurn = CurrentAnimalTurn.EnemyDamage;
                 break;
-            case CurrentAnimalTurn.EnemyDamage:
-                Debug.Log("6");                
+            case CurrentAnimalTurn.EnemyDamage:          
                 enemyAttacks.EnemyAttackDamageStep();
                 yield return new WaitForSeconds(2);
-                buttonCanvas.gameObject.SetActive(true);
+                playerAttacks.TurnOnButtons();
                 enemyAttacks.ClearEnemyAttackText();
                 currentAnimalTurn = CurrentAnimalTurn.PlayerSelection;
                 break;

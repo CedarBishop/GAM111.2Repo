@@ -27,6 +27,7 @@ public class InitiateBattle : MonoBehaviour
     {
         overworldHealth = GameObject.Find("Scene Manager").GetComponent<OverworldHealth>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        SoundManager.instance.StartCoroutine("CrossFadeToBattle");
         GameManager.instance.StoreHealth(overworldHealth.healthBar.fillAmount);
         GameManager.instance.StorePosition(playerTransform.position);
         GameManager.instance.StoreEnemyToFight(enemyType);

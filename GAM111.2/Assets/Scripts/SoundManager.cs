@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-    public AudioSource musicSource;
+    public AudioSource battleMusicSource;
+    public AudioSource overworldMusicSource;
     public AudioSource sfxSource;
     public float lowPitch = 0.95f;
     public float highPitch = 1.05f;
@@ -21,10 +24,15 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
     
-    public void PlayMusic (AudioClip Clip)
+    public void PlayOverworldMusic ()
     {
-        musicSource.clip = Clip;
-        musicSource.Play();
+        overworldMusicSource.volume = 0;
+        overworldMusicSource.Play();
+    }
+    public void PlayBattleMusic()
+    {
+        battleMusicSource.volume = 0;
+        battleMusicSource.Play();
     }
 
     public void RandomizePitchAndPlay (AudioClip Clip)
@@ -34,4 +42,33 @@ public class SoundManager : MonoBehaviour
         sfxSource.pitch = randomPitch;
         sfxSource.Play();
     }
+
+    public IEnumerator CrossFadeToBattle ()
+    {
+        if (!battleMusicSource.isPlaying)
+        {
+            PlayBattleMusic();
+        }
+        while (overworldMusicSource.volume > 0.01f)
+        {
+            overworldMusicSource.volume -= 0.01f;
+            battleMusicSource.volume += 0.005f;
+            yield return null;
+        }
+    }
+
+    public IEnumerator CrossFadeToOverworld()
+    {
+        if (!overworldMusicSource.isPlaying)
+        {
+            PlayOverworldMusic();
+        }
+        while (battleMusicSource.volume > 0.01f)
+        {
+            overworldMusicSource.volume += 0.01f;
+            battleMusicSource.volume -= 0.005f;
+            yield return null;
+        }
+    }
+
 }

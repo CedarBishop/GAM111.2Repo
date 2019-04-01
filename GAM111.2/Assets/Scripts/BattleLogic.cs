@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class BattleLogic : MonoBehaviour
@@ -8,6 +9,8 @@ public class BattleLogic : MonoBehaviour
     public Text playerHpText;
     public Text enemyHpText;
     public TMPro.TextMeshProUGUI enemyName;
+    public AudioClip gameOverSound;
+    public AudioClip winBattleSound;
 
     void Start()
     {
@@ -20,11 +23,11 @@ public class BattleLogic : MonoBehaviour
         enemyHpText.text = "HP: " + (enemyHpImage.fillAmount * 100).ToString("F0");
         if (playerHpImage.fillAmount <= 0)
         {
-            PlayerLost();
+            StartCoroutine("PlayerLost");
         }
         else if (enemyHpImage.fillAmount <= 0)
         {
-            PlayerWins();
+            StartCoroutine("PlayerWins");
         }
     }
 
@@ -57,14 +60,22 @@ public class BattleLogic : MonoBehaviour
     {
         playerHpImage.fillAmount += (amount / 100);
     }
-    void PlayerLost ()
+    IEnumerator PlayerLost ()
     {
+        yield return new WaitForSeconds(2);
+        SoundManager.instance.RandomizePitchAndPlay(gameOverSound);
+        SoundManager.instance.StartCoroutine("CrossFadeToOverworld");
         SceneManager.LoadScene("MainMenuScene");
+        StopCoroutine("PlayerLost");
     }
 
-    void PlayerWins ()
+    IEnumerator PlayerWins ()
     {
+        yield return new WaitForSeconds(2);
+        SoundManager.instance.RandomizePitchAndPlay(winBattleSound);
+        SoundManager.instance.StartCoroutine("CrossFadeToOverworld");
         GameManager.instance.StoreHealth(playerHpImage.fillAmount);
         SceneManager.LoadScene("Overworld");
+        StopCoroutine("PlayerWins");
     }
 }

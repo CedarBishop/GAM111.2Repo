@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7251624744900311970}
   - component: {fileID: 1658016879481520464}
+  - component: {fileID: 1028674450934730439}
   m_Layer: 0
   m_Name: Player2D EGO
   m_TagString: Untagged
@@ -46,6 +47,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonCanvas: {fileID: 0}
   playerCurrentAttackText: {fileID: 0}
+--- !u!114 &1028674450934730439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658016879481520463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee1bac605b8164499effe41f3bc480c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: Player Target Position
+  speed: 0.2
 --- !u!1001 &7338482216970789038
 PrefabInstance:
   m_ObjectHideFlags: 0
