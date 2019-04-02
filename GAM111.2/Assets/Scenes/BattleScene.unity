@@ -497,6 +497,7 @@ MonoBehaviour:
   playerHitImage: {fileID: 560096622}
   enemyHitImage: {fileID: 1988286134}
   takeDamageSound: {fileID: 8300000, guid: fe64d68cf93612a4daac2441fd31090e, type: 3}
+  playerAttacks: {fileID: 1658016879481520464}
 --- !u!114 &394459054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +515,7 @@ MonoBehaviour:
   allCanvas:
   - {fileID: 1480952588}
   - {fileID: 1726001604}
+  timeBtwStates: 2
 --- !u!1 &560096620
 GameObject:
   m_ObjectHideFlags: 0

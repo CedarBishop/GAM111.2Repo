@@ -112,6 +112,11 @@ public class PlayerAttacks : MonoBehaviour
         playerCurrentAttackText.text = "";
     }
 
+    public void PlayerFainted ()
+    {
+        playerCurrentAttackText.text = "BigMac has fainted";
+    }
+
     public void TurnOnButtons()
     {
         buttonCanvas.gameObject.SetActive(true);

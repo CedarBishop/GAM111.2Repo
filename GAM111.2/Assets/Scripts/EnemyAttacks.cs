@@ -44,4 +44,9 @@ public class EnemyAttacks : MonoBehaviour
         enemyAttackText = GameObject.Find("Enemy Attack Text").GetComponent<TMPro.TextMeshProUGUI>();
         enemyAttackText.text = "";
     }
+
+    public void EnemyFainted ()
+    {
+        enemyAttackText.text = enemyName + " has fainted";
+    }
 }

@@ -8,6 +8,7 @@ public class TurnBasedSystem : MonoBehaviour
     public CurrentAnimalTurn currentAnimalTurn;
     public PlayerAttacks playerAttacks;
     public Canvas[] allCanvas;
+    public float timeBtwStates = 2;
     void Start()
     {
         if (GameManager.instance.ReturnEnemyType() == 1)
@@ -76,27 +77,27 @@ public class TurnBasedSystem : MonoBehaviour
                 currentAnimalTurn = CurrentAnimalTurn.PlayerAttack;
                 break;
             case CurrentAnimalTurn.PlayerAttack:
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(timeBtwStates);
                 currentAnimalTurn = CurrentAnimalTurn.PlayerDamage;
                 break;
             case CurrentAnimalTurn.PlayerDamage:              
                 playerAttacks.PlayerAttackDamage();
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(timeBtwStates);
                 currentAnimalTurn = CurrentAnimalTurn.EnemySelection;
                 break;
             case CurrentAnimalTurn.EnemySelection:
                 playerAttacks.ClearPlayerAttackText();
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(timeBtwStates);
                 currentAnimalTurn = CurrentAnimalTurn.EnemyAttack;
                 break;
             case CurrentAnimalTurn.EnemyAttack:
                 enemyAttacks.AttackPlayer();
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(timeBtwStates);
                 currentAnimalTurn = CurrentAnimalTurn.EnemyDamage;
                 break;
             case CurrentAnimalTurn.EnemyDamage:          
                 enemyAttacks.EnemyAttackDamageStep();
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(timeBtwStates);
                 playerAttacks.TurnOnButtons();
                 enemyAttacks.ClearEnemyAttackText();
                 currentAnimalTurn = CurrentAnimalTurn.PlayerSelection;

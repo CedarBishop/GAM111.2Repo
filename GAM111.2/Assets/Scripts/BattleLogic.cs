@@ -14,6 +14,8 @@ public class BattleLogic : MonoBehaviour
     public Image playerHitImage;
     public Image enemyHitImage;
     public AudioClip takeDamageSound;
+    EnemyAttacks enemyAttacks;
+    public PlayerAttacks playerAttacks;
     bool activeToggle = false;
     int count = 0;
     void Start()
@@ -34,6 +36,21 @@ public class BattleLogic : MonoBehaviour
         else if (enemyHpImage.fillAmount < 0.01f)
         {
             StartCoroutine("PlayerWins");
+            if (GameManager.instance.ReturnEnemyType() == 1)
+            {
+                enemyAttacks = GameObject.FindGameObjectWithTag("Enemy1").GetComponent<EnemyAttacks>();
+                enemyAttacks.EnemyFainted();
+            }
+            else if (GameManager.instance.ReturnEnemyType() == 2)
+            {
+                enemyAttacks = GameObject.FindGameObjectWithTag("Enemy2").GetComponent<EnemyAttacks>();
+                enemyAttacks.EnemyFainted();
+            }
+            else if (GameManager.instance.ReturnEnemyType() == 3)
+            {
+                enemyAttacks = GameObject.FindGameObjectWithTag("Enemy3").GetComponent<EnemyAttacks>();
+                enemyAttacks.EnemyFainted();
+            }
         }
     }
 
@@ -78,7 +95,7 @@ public class BattleLogic : MonoBehaviour
     IEnumerator PlayerLost ()
     {
         SoundManager.instance.RandomizePitchAndPlay(gameOverSound);
-        yield return new WaitForSeconds(2);        
+        yield return new WaitForSeconds(3);        
         SoundManager.instance.StartCoroutine("CrossFadeToOverworld");
         SceneManager.LoadScene("MainMenuScene");
         StopCoroutine("PlayerLost");
@@ -86,7 +103,8 @@ public class BattleLogic : MonoBehaviour
 
     IEnumerator PlayerWins ()
     {
-        yield return new WaitForSeconds(2);
+        playerAttacks.PlayerFainted();
+        yield return new WaitForSeconds(3);
         SoundManager.instance.RandomizePitchAndPlay(winBattleSound);
         SoundManager.instance.StartCoroutine("CrossFadeToOverworld");
         GameManager.instance.StoreHealth(playerHpImage.fillAmount);
@@ -97,16 +115,8 @@ public class BattleLogic : MonoBehaviour
     {
         while (enemyHpImage.fillAmount > newHp)
         {
-            enemyHpImage.fillAmount -= 0.01f;            
-            if (enemyHpImage.fillAmount == newHp)
-            {
-                Debug.Log(newHp);
-                yield break;
-            }
-            else
-            {
-                yield return null;
-            }
+            enemyHpImage.fillAmount -= 0.01f;
+            yield return null;
         }
     }
     IEnumerator GradualPlayerHealthDecrease(float newHp)
@@ -114,15 +124,7 @@ public class BattleLogic : MonoBehaviour
         while (playerHpImage.fillAmount > newHp)
         {
             playerHpImage.fillAmount -= 0.01f;            
-            if (playerHpImage.fillAmount == newHp)
-            {
-                Debug.Log(newHp);
-                yield break;
-            }
-            else
-            {
-                 yield return null;
-            }
+            yield return null;
         }
     }
     IEnumerator GradualPlayerHealthIncrease(float newHp)
@@ -130,15 +132,7 @@ public class BattleLogic : MonoBehaviour
         while (playerHpImage.fillAmount <= newHp)
         {
             playerHpImage.fillAmount += 0.01f;
-            if (playerHpImage.fillAmount == newHp)
-            {
-                Debug.Log(newHp);
-                yield break;
-            }
-            else
-            {
-                yield return null;
-            }
+            yield return null;
         }
     }
     IEnumerator FlickerPlayerHitImage ()
