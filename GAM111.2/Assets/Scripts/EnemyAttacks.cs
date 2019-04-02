@@ -9,6 +9,7 @@ public class EnemyAttacks : MonoBehaviour
     TMPro.TextMeshProUGUI enemyAttackText;
     public float[] damageEnemyDeal;
     int randomIndex;
+    public string enemyName;
     // Start is called before the first frame update
     
     public void AttackPlayer ()
@@ -16,7 +17,7 @@ public class EnemyAttacks : MonoBehaviour
         randomIndex = Random.Range(0,enemyAttackNames.Length);
 
         enemyAttackText = GameObject.Find("Enemy Attack Text").GetComponent<TMPro.TextMeshProUGUI>();
-        enemyAttackText.text = enemyAttackNames[randomIndex];
+        enemyAttackText.text = enemyName + " used " + enemyAttackNames[randomIndex];
     }
 
     public void EnemyAttackDamageStep ()
@@ -36,8 +37,6 @@ public class EnemyAttacks : MonoBehaviour
             default:
                 break;
         }
-
-
         battleLogic.PlayerTakeDamage(damageEnemyDeal[randomIndex]);
 
     }

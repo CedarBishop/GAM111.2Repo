@@ -119,6 +119,7 @@ MonoBehaviour:
   - 50
   - 33.4
   - 25
+  enemyName: McRib
 --- !u!114 &3310927469444558748
 MonoBehaviour:
   m_ObjectHideFlags: 0

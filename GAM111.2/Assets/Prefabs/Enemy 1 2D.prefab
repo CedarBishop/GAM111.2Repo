@@ -119,6 +119,7 @@ MonoBehaviour:
   - 50
   - 33.4
   - 25
+  enemyName: McChicken
 --- !u!114 &622496109374899448
 MonoBehaviour:
   m_ObjectHideFlags: 0

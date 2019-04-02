@@ -119,6 +119,7 @@ MonoBehaviour:
   - 50
   - 33.4
   - 25
+  enemyName: McDonald
 --- !u!114 &5410452690391297946
 MonoBehaviour:
   m_ObjectHideFlags: 0
