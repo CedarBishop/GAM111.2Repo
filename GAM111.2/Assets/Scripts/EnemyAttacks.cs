@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyAttacks : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class EnemyAttacks : MonoBehaviour
     public float[] damageEnemyDeal;
     int randomIndex;
     public string enemyName;
-    // Start is called before the first frame update
+    public AudioClip[] enemyAttackSounds;
     
     public void AttackPlayer ()
     {
@@ -18,6 +16,7 @@ public class EnemyAttacks : MonoBehaviour
 
         enemyAttackText = GameObject.Find("Enemy Attack Text").GetComponent<TMPro.TextMeshProUGUI>();
         enemyAttackText.text = enemyName + " used " + enemyAttackNames[randomIndex];
+        SoundManager.instance.RandomizePitchAndPlay(enemyAttackSounds[randomIndex]);
     }
 
     public void EnemyAttackDamageStep ()

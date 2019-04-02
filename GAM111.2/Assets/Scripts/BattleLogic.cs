@@ -13,6 +13,7 @@ public class BattleLogic : MonoBehaviour
     public AudioClip winBattleSound;
     public Image playerHitImage;
     public Image enemyHitImage;
+    public AudioClip takeDamageSound;
     bool activeToggle = false;
     int count = 0;
     void Start()
@@ -56,6 +57,7 @@ public class BattleLogic : MonoBehaviour
     {
         count = 0;
         float newHealth = playerHpImage.fillAmount - (damage / 100);
+        SoundManager.instance.RandomizePitchAndPlay(takeDamageSound);
         StartCoroutine("GradualPlayerHealthDecrease", newHealth);
         StartCoroutine("FlickerPlayerHitImage");
     }
@@ -64,6 +66,7 @@ public class BattleLogic : MonoBehaviour
     {
         count = 0;
         float newHealth = enemyHpImage.fillAmount - (damage/100);
+        SoundManager.instance.RandomizePitchAndPlay(takeDamageSound);
         StartCoroutine("GradualEnemyHealthDecrease", newHealth);
         StartCoroutine("FlickerEnemyHitImage");
     }

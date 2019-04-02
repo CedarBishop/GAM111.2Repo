@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonCanvas: {fileID: 0}
   playerCurrentAttackText: {fileID: 0}
+  playerAnim: {fileID: 7243536785776144274}
+  attackSound: {fileID: 8300000, guid: 525b883d11e94f445a1c0298302a5c31, type: 3}
+  eatGrassSound: {fileID: 8300000, guid: 1df9149c611137944bca9e7f0fce851a, type: 3}
 --- !u!114 &1028674450934730439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,11 +131,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 95051569790832444, guid: 9ec060093457ad84ca2733cb15c2c41e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 860deab8d0c2be541bbc51f6d0e49869, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
 --- !u!4 &7339144726254807092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054502789990554, guid: 9ec060093457ad84ca2733cb15c2c41e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7338482216970789038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7243536785776144274 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95051569790832444, guid: 9ec060093457ad84ca2733cb15c2c41e,
     type: 3}
   m_PrefabInstance: {fileID: 7338482216970789038}
   m_PrefabAsset: {fileID: 0}

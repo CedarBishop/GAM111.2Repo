@@ -496,6 +496,7 @@ MonoBehaviour:
   winBattleSound: {fileID: 8300000, guid: 788dbe416b27f464eb9d1c55683f5378, type: 3}
   playerHitImage: {fileID: 560096622}
   enemyHitImage: {fileID: 1988286134}
+  takeDamageSound: {fileID: 8300000, guid: fe64d68cf93612a4daac2441fd31090e, type: 3}
 --- !u!114 &394459054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3175,59 +3176,8 @@ PrefabInstance:
       propertyPath: playerCurrentAttackText
       value: 
       objectReference: {fileID: 1137604610}
-    - target: {fileID: 1658016879481520464, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: playerAnim
-      value: 
-      objectReference: {fileID: 585713851304834203}
-    - target: {fileID: 7339144726254807092, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7339144726254807092, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7339144726254807092, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7339144726254807092, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.2588191
-      objectReference: {fileID: 0}
-    - target: {fileID: 7339144726254807092, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7339144726254807092, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9659258
-      objectReference: {fileID: 0}
-    - target: {fileID: 7339144726254807092, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7243536785776144274, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 860deab8d0c2be541bbc51f6d0e49869, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4826e2cc8aeb0446a2027cd8abe5979, type: 3}
---- !u!95 &585713851304834203 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7243536785776144274, guid: a4826e2cc8aeb0446a2027cd8abe5979,
-    type: 3}
-  m_PrefabInstance: {fileID: 585713851304834202}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1658016879481520464 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1658016879481520464, guid: a4826e2cc8aeb0446a2027cd8abe5979,

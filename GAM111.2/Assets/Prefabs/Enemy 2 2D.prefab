@@ -120,6 +120,10 @@ MonoBehaviour:
   - 33
   - 24
   enemyName: McDonald
+  enemyAttackSounds:
+  - {fileID: 8300000, guid: 525b883d11e94f445a1c0298302a5c31, type: 3}
+  - {fileID: 8300000, guid: 525b883d11e94f445a1c0298302a5c31, type: 3}
+  - {fileID: 8300000, guid: 525b883d11e94f445a1c0298302a5c31, type: 3}
 --- !u!114 &5410452690391297946
 MonoBehaviour:
   m_ObjectHideFlags: 0

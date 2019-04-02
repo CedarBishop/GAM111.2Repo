@@ -9,6 +9,8 @@ public class PlayerAttacks : MonoBehaviour
     public TMPro.TextMeshProUGUI playerCurrentAttackText;
     string attackBeingUsed;
     public Animator playerAnim;
+    public AudioClip attackSound;
+    public AudioClip eatGrassSound;
     void Start ()
     {
         playerCurrentAttackText.text = "";
@@ -23,6 +25,7 @@ public class PlayerAttacks : MonoBehaviour
         attackBeingUsed = "Schnitzel";
         turnBasedSystem.StartCoroutine("CycleNextTurn");
         playerAnim.SetTrigger("playerAttacks");
+        SoundManager.instance.RandomizePitchAndPlay(attackSound);
     }
 
     public void Fry ()
@@ -31,6 +34,7 @@ public class PlayerAttacks : MonoBehaviour
         attackBeingUsed = "Braise";
         turnBasedSystem.StartCoroutine("CycleNextTurn");
         playerAnim.SetTrigger("playerAttacks");
+        SoundManager.instance.RandomizePitchAndPlay(attackSound);
     }
 
     public void Roast ()
@@ -39,6 +43,7 @@ public class PlayerAttacks : MonoBehaviour
         attackBeingUsed = "Roast";
         turnBasedSystem.StartCoroutine("CycleNextTurn");
         playerAnim.SetTrigger("playerAttacks");
+        SoundManager.instance.RandomizePitchAndPlay(attackSound);
     }
 
     public void EatGrass ()
@@ -47,6 +52,7 @@ public class PlayerAttacks : MonoBehaviour
         attackBeingUsed = "EatGrass";
         turnBasedSystem.StartCoroutine("CycleNextTurn");
         playerAnim.SetTrigger("playerHeals");
+        SoundManager.instance.RandomizePitchAndPlay(eatGrassSound);
     }
     
 	public void PlayerAttackDamage()
