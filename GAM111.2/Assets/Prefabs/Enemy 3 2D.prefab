@@ -116,9 +116,9 @@ MonoBehaviour:
   - Mud Roll
   - Ram
   damageEnemyDeal:
-  - 50
-  - 33.4
-  - 25
+  - 49
+  - 33
+  - 24
   enemyName: McRib
 --- !u!114 &3310927469444558748
 MonoBehaviour:

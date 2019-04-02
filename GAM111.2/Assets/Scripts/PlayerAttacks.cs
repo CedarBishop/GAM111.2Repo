@@ -8,6 +8,7 @@ public class PlayerAttacks : MonoBehaviour
     public Canvas buttonCanvas;
     public TMPro.TextMeshProUGUI playerCurrentAttackText;
     string attackBeingUsed;
+    public Animator playerAnim;
     void Start ()
     {
         playerCurrentAttackText.text = "";
@@ -21,6 +22,7 @@ public class PlayerAttacks : MonoBehaviour
         playerCurrentAttackText.text = "Big Mac used Schnitzel!";
         attackBeingUsed = "Schnitzel";
         turnBasedSystem.StartCoroutine("CycleNextTurn");
+        playerAnim.SetTrigger("playerAttacks");
     }
 
     public void Fry ()
@@ -28,19 +30,23 @@ public class PlayerAttacks : MonoBehaviour
         playerCurrentAttackText.text = "Big Mac used Braise!";
         attackBeingUsed = "Braise";
         turnBasedSystem.StartCoroutine("CycleNextTurn");
+        playerAnim.SetTrigger("playerAttacks");
     }
 
     public void Roast ()
     {
         playerCurrentAttackText.text = "Big Mac used Roast!";
         attackBeingUsed = "Roast";
-        turnBasedSystem.StartCoroutine("CycleNextTurn");    }
+        turnBasedSystem.StartCoroutine("CycleNextTurn");
+        playerAnim.SetTrigger("playerAttacks");
+    }
 
     public void EatGrass ()
     {
         playerCurrentAttackText.text = "Big Mac used Eat Grass!";
         attackBeingUsed = "EatGrass";
         turnBasedSystem.StartCoroutine("CycleNextTurn");
+        playerAnim.SetTrigger("playerHeals");
     }
     
 	public void PlayerAttackDamage()
@@ -48,51 +54,51 @@ public class PlayerAttacks : MonoBehaviour
         if (attackBeingUsed == "Schnitzel" && GameManager.instance.ReturnEnemyType() == 1)
         {
             playerCurrentAttackText.text = "Schnitzel was Super Effective";
-            battleLogic.EnemyTakeDamage(50.0f);
+            battleLogic.EnemyTakeDamage(49);
         }
         else if (attackBeingUsed == "Schnitzel" && GameManager.instance.ReturnEnemyType() == 2)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(33.4f);
+            battleLogic.EnemyTakeDamage(33);
         }
         else if (attackBeingUsed == "Schnitzel" && GameManager.instance.ReturnEnemyType() == 3)
         {
             playerCurrentAttackText.text = "Schnitzel was not very effective";
-            battleLogic.EnemyTakeDamage(25);
+            battleLogic.EnemyTakeDamage(24);
         }
         else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 1)
         {
             playerCurrentAttackText.text = "Braise was not very effective";
-            battleLogic.EnemyTakeDamage(25);
+            battleLogic.EnemyTakeDamage(24);
         }
         else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 2)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(33.4f);
+            battleLogic.EnemyTakeDamage(33);
         }
         else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 3)
         {
             playerCurrentAttackText.text = "Braise was super effective";
-            battleLogic.EnemyTakeDamage(50.0f);
+            battleLogic.EnemyTakeDamage(49);
         }
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 1)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(33.4f);
+            battleLogic.EnemyTakeDamage(33);
         }
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 2)
         {
             playerCurrentAttackText.text = "Roast was super effective";
-            battleLogic.EnemyTakeDamage(50);
+            battleLogic.EnemyTakeDamage(49);
         }
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 3)
         {
             playerCurrentAttackText.text = "Roast was not very effective";
-            battleLogic.EnemyTakeDamage(25);
+            battleLogic.EnemyTakeDamage(24);
         }
         else if (attackBeingUsed == "EatGrass")
         {
-            battleLogic.PlayerHeals(40.0f);
+            battleLogic.PlayerHeals(39.0f);
         }
     }
     public void ClearPlayerAttackText()

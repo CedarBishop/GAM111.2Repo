@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         transform.position = GameManager.instance.RetrievePosition();
-        Debug.Log(transform.position);
         navMeshAgent = GetComponent<NavMeshAgent>();
         target = transform.position;
     }

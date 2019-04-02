@@ -1,67 +1,33 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class OverworldEnemyLogic : MonoBehaviour
 {
-    private GameObject[] chickens;
-    private GameObject[] ducks;
-    private GameObject[] pigs;
-    private float timer;
-    public float timeBeforeTypeRespawns;
-    bool[] enemyRespawnTimerStatus = { false, false, false };
+    private GameObject chicken;
+    private GameObject duck;
+    private GameObject pig;
+    public float timeBeforeRespawn;
+    
     void Start()
     {
-        chickens = GameObject.FindGameObjectsWithTag("Enemy1");
-        foreach (GameObject chicken in chickens)
-        {
-            chicken.SetActive(GameManager.instance.retrieveEnemyStatus(1));
-            enemyRespawnTimerStatus[0] = true;            
-        }
+        chicken = GameObject.FindGameObjectWithTag("Enemy1");        
+        chicken.SetActive(GameManager.instance.retrieveEnemyStatus(1));    
 
-        ducks = GameObject.FindGameObjectsWithTag("Enemy2");
-        foreach (GameObject duck in ducks)
-        {
-            duck.SetActive(GameManager.instance.retrieveEnemyStatus(3));
-            enemyRespawnTimerStatus[1] = true;
-        }
+        duck = GameObject.FindGameObjectWithTag("Enemy2");      
+        duck.SetActive(GameManager.instance.retrieveEnemyStatus(2));
 
-        pigs = GameObject.FindGameObjectsWithTag("Enemy3");
-        foreach (GameObject pig in pigs)
-        {
-            pig.SetActive(GameManager.instance.retrieveEnemyStatus(3));
-            enemyRespawnTimerStatus[2] = true;
-        }
-        timer = timeBeforeTypeRespawns;
+        pig = GameObject.FindGameObjectWithTag("Enemy3");        
+        pig.SetActive(GameManager.instance.retrieveEnemyStatus(3));
+        StartCoroutine("TimeBeforeRespawn");
     }
 
-    void Update()
+    IEnumerator TimeBeforeRespawn ()
     {
-        if (timer <= 0 && enemyRespawnTimerStatus[0] == true)
-        {
-            foreach (GameObject chicken in chickens)
-            {
-                chicken.SetActive(true);
-            }
-            enemyRespawnTimerStatus[0] = false;
-        }
-        else if (timer <= 0 && enemyRespawnTimerStatus[1] == true)
-        {
-            foreach (GameObject duck in ducks)
-            {
-                duck.SetActive(true);
-            }
-            enemyRespawnTimerStatus[1] = false;
-        }
-        else if (timer <= 0 && enemyRespawnTimerStatus[2] == true)
-        {
-            foreach (GameObject pig in pigs)
-            {
-                pig.SetActive(true);
-            }
-            enemyRespawnTimerStatus[2] = false;
-        }
-        else
-        {
-            timer -= Time.deltaTime;
-        }
+        yield return new WaitForSeconds(timeBeforeRespawn);
+        chicken.SetActive(true);
+        duck.SetActive(true);
+        pig.SetActive(true);
     }
+
+   
 }

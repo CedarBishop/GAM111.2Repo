@@ -116,9 +116,9 @@ MonoBehaviour:
   - Flap
   - Splash
   damageEnemyDeal:
-  - 50
-  - 33.4
-  - 25
+  - 49
+  - 33
+  - 24
   enemyName: McDonald
 --- !u!114 &5410452690391297946
 MonoBehaviour:

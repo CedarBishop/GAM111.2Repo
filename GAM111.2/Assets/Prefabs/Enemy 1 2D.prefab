@@ -116,9 +116,9 @@ MonoBehaviour:
   - Scratch
   - Lay Egg
   damageEnemyDeal:
-  - 50
-  - 33.4
-  - 25
+  - 49
+  - 33
+  - 24
   enemyName: McChicken
 --- !u!114 &622496109374899448
 MonoBehaviour:
