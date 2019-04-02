@@ -25,8 +25,8 @@ public class PlayerAttacks : MonoBehaviour
 
     public void Fry ()
     {
-        playerCurrentAttackText.text = "Big Mac used Fry!";
-        attackBeingUsed = "Fry";
+        playerCurrentAttackText.text = "Big Mac used Braise!";
+        attackBeingUsed = "Braise";
         turnBasedSystem.StartCoroutine("CycleNextTurn");
     }
 
@@ -60,19 +60,19 @@ public class PlayerAttacks : MonoBehaviour
             playerCurrentAttackText.text = "Schnitzel was not very effective";
             battleLogic.EnemyTakeDamage(25);
         }
-        else if (attackBeingUsed == "Fry" && GameManager.instance.ReturnEnemyType() == 1)
+        else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 1)
         {
-            playerCurrentAttackText.text = "Fry was not very effective";
+            playerCurrentAttackText.text = "Braise was not very effective";
             battleLogic.EnemyTakeDamage(25);
         }
-        else if (attackBeingUsed == "Fry" && GameManager.instance.ReturnEnemyType() == 2)
+        else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 2)
         {
             playerCurrentAttackText.text = "";
             battleLogic.EnemyTakeDamage(33.4f);
         }
-        else if (attackBeingUsed == "Fry" && GameManager.instance.ReturnEnemyType() == 3)
+        else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 3)
         {
-            playerCurrentAttackText.text = "Fry was super effective";
+            playerCurrentAttackText.text = "Braise was super effective";
             battleLogic.EnemyTakeDamage(50.0f);
         }
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 1)

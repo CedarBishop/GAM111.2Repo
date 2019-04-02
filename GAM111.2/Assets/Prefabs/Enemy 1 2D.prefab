@@ -111,8 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d7400947bbf2141a65aaf1e6f36501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttackName: Chicken Attack
-  damageEnemyDeals: 25
+  enemyAttackNames:
+  - Peck
+  - Scratch
+  - Lay Egg
+  damageEnemyDeal:
+  - 50
+  - 33.4
+  - 25
 --- !u!114 &622496109374899448
 MonoBehaviour:
   m_ObjectHideFlags: 0

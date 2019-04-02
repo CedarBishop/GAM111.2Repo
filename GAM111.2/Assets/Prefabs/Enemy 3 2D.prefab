@@ -111,8 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d7400947bbf2141a65aaf1e6f36501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttackName: Pig Attack
-  damageEnemyDeals: 25
+  enemyAttackNames:
+  - Oink
+  - Mud Roll
+  - Ram
+  damageEnemyDeal:
+  - 50
+  - 33.4
+  - 25
 --- !u!114 &3310927469444558748
 MonoBehaviour:
   m_ObjectHideFlags: 0
