@@ -9,6 +9,8 @@ public class EnemyAttacks : MonoBehaviour
     int randomIndex;
     public string enemyName;
     public AudioClip[] enemyAttackSounds;
+    public Animator enemyAnim;
+    //public GameObject[] attackParticles;
     
     public void AttackPlayer ()
     {
@@ -17,6 +19,7 @@ public class EnemyAttacks : MonoBehaviour
         enemyAttackText = GameObject.Find("Enemy Attack Text").GetComponent<TMPro.TextMeshProUGUI>();
         enemyAttackText.text = enemyName + " used " + enemyAttackNames[randomIndex];
         SoundManager.instance.RandomizePitchAndPlay(enemyAttackSounds[randomIndex]);
+        enemyAnim.SetTrigger("enemyAttacks");
     }
 
     public void EnemyAttackDamageStep ()
@@ -37,7 +40,8 @@ public class EnemyAttacks : MonoBehaviour
                 break;
         }
         battleLogic.PlayerTakeDamage(damageEnemyDeal[randomIndex]);
-
+        //GameObject go = Instantiate(attackParticles[randomIndex],new Vector3(0, 0,  0), Quaternion.identity);
+        //Destroy(go,2);
     }
     public void ClearEnemyAttackText ()
     {
@@ -48,5 +52,6 @@ public class EnemyAttacks : MonoBehaviour
     public void EnemyFainted ()
     {
         enemyAttackText.text = enemyName + " has fainted";
+        enemyAnim.SetBool("enemyIsDead", true);
     }
 }

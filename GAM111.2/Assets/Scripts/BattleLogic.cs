@@ -99,11 +99,11 @@ public class BattleLogic : MonoBehaviour
         SoundManager.instance.StartCoroutine("CrossFadeToOverworld");
         SceneManager.LoadScene("MainMenuScene");
         StopCoroutine("PlayerLost");
+        GameManager.instance.StorePosition(new Vector3(-20,0.6f,0));
     }
 
     IEnumerator PlayerWins ()
     {
-        playerAttacks.PlayerFainted();
         yield return new WaitForSeconds(3);
         SoundManager.instance.RandomizePitchAndPlay(winBattleSound);
         SoundManager.instance.StartCoroutine("CrossFadeToOverworld");

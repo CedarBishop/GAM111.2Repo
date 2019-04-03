@@ -11,6 +11,7 @@ public class PlayerAttacks : MonoBehaviour
     public Animator playerAnim;
     public AudioClip attackSound;
     public AudioClip eatGrassSound;
+    
     void Start ()
     {
         playerCurrentAttackText.text = "";
@@ -65,22 +66,22 @@ public class PlayerAttacks : MonoBehaviour
         else if (attackBeingUsed == "Schnitzel" && GameManager.instance.ReturnEnemyType() == 2)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(33);
+            battleLogic.EnemyTakeDamage(24);
         }
         else if (attackBeingUsed == "Schnitzel" && GameManager.instance.ReturnEnemyType() == 3)
         {
             playerCurrentAttackText.text = "Schnitzel was not very effective";
-            battleLogic.EnemyTakeDamage(24);
+            battleLogic.EnemyTakeDamage(12);
         }
         else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 1)
         {
             playerCurrentAttackText.text = "Braise was not very effective";
-            battleLogic.EnemyTakeDamage(24);
+            battleLogic.EnemyTakeDamage(12);
         }
         else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 2)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(33);
+            battleLogic.EnemyTakeDamage(24);
         }
         else if (attackBeingUsed == "Braise" && GameManager.instance.ReturnEnemyType() == 3)
         {
@@ -90,7 +91,7 @@ public class PlayerAttacks : MonoBehaviour
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 1)
         {
             playerCurrentAttackText.text = "";
-            battleLogic.EnemyTakeDamage(33);
+            battleLogic.EnemyTakeDamage(24);
         }
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 2)
         {
@@ -100,7 +101,7 @@ public class PlayerAttacks : MonoBehaviour
         else if (attackBeingUsed == "Roast" && GameManager.instance.ReturnEnemyType() == 3)
         {
             playerCurrentAttackText.text = "Roast was not very effective";
-            battleLogic.EnemyTakeDamage(24);
+            battleLogic.EnemyTakeDamage(12);
         }
         else if (attackBeingUsed == "EatGrass")
         {
@@ -115,6 +116,7 @@ public class PlayerAttacks : MonoBehaviour
     public void PlayerFainted ()
     {
         playerCurrentAttackText.text = "BigMac has fainted";
+        playerAnim.SetBool("playerIsDead", true);
     }
 
     public void TurnOnButtons()

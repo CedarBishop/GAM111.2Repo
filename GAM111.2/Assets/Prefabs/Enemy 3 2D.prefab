@@ -12,11 +12,9 @@ GameObject:
   - component: {fileID: 6164085403463625202}
   - component: {fileID: 5815109505220684022}
   - component: {fileID: 608654987409529273}
-  - component: {fileID: 4761126353120751276}
-  - component: {fileID: 3310927469444558748}
   m_Layer: 0
   m_Name: Enemy 3 2D
-  m_TagString: Enemy3
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,42 +97,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4761126353120751276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906186365443638793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3d7400947bbf2141a65aaf1e6f36501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAttackNames:
-  - Oink
-  - Mud Roll
-  - Ram
-  damageEnemyDeal:
-  - 49
-  - 33
-  - 24
-  enemyName: McRib
-  enemyAttackSounds:
-  - {fileID: 8300000, guid: 525b883d11e94f445a1c0298302a5c31, type: 3}
-  - {fileID: 8300000, guid: 525b883d11e94f445a1c0298302a5c31, type: 3}
-  - {fileID: 8300000, guid: 525b883d11e94f445a1c0298302a5c31, type: 3}
---- !u!114 &3310927469444558748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906186365443638793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee1bac605b8164499effe41f3bc480c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetName: Enemy Target Position
-  speed: 0.2
